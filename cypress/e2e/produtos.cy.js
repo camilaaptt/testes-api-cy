@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 import contrato from '../contracts/produtos.contract'
 
 describe('Testes da Funcionalidade Produtos', () => {
@@ -44,7 +43,7 @@ describe('Testes da Funcionalidade Produtos', () => {
     });
 
     it('Deve validar mensagem de erro ao cadastrar produto repetido', () => {
-        cy.cadastrarProduto(token, 'Produto EBAC Novo 1', 250, "Descrição do produto novo", 180)
+        cy.cadastrarProduto(token, "Logitech MX Vertical", 470, "Mouse", 382)
             .then((response) => {
                 expect(response.status).to.equal(400)
                 expect(response.body.message).to.equal('Já existe produto com esse nome')

@@ -1,6 +1,4 @@
-/// <reference types="cypress" />
-
-describe('Login', () => {
+describe('Testes da Funcionalidade Login', () => {
 
     it('Deve fazer login com sucesso', () => {
         cy.request({
