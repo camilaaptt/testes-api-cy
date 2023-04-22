@@ -14,8 +14,15 @@ pipeline {
         }
         stage('Executar Testes') {
             steps {
-                sh 'npm run cy:run-ci'
+                sh 'NO_COLOR=1 npm run cy:run-ci'
+                sh 'npm run cy:report'
             }
         }
+        stage('Publicar Report') {
+            steps {
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'mochawesome-report', reportFiles: 'report.html', reportName: 'Testes API ServeRest Cypress Report', reportTitles: '', useWrapperFileDirectly: true])
+            }
+        }
+        
     }
 }

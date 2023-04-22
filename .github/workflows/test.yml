@@ -22,7 +22,7 @@ jobs:
         continue-on-error: true
         with:
           install-command: npm install
-          start: npm run cy:run-ci
+          start: npm start
       - name: Publish Report
         uses: peaceiris/actions-gh-pages@v3
         with:
